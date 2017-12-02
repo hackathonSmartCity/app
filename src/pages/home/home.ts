@@ -5,15 +5,15 @@ import { NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers:[GoogleMaps]
+  providers: [GoogleMaps]
 })
 export class HomePage {
 
-  @ViewChild('map') mapElement: HTMLElement;
-  
+  zoom = 18;
+  tilt = 15;
   map: GoogleMap;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private googleMaps: GoogleMaps) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private googleMaps: GoogleMaps) {
   }
 
   ionViewDidLoad() {
@@ -28,32 +28,20 @@ export class HomePage {
       }
     };
 
-    
     this.map = this.googleMaps.create("map_canvas", mapOptions);
     this.map.setMyLocationEnabled(true);
-    
+
     // Wait the MAP_READY before using any methods.
     this.map.one(GoogleMapsEvent.MAP_READY)
       .then(() => {
-        console.log('Map is ready!');
-
-        // Now you can use all methods safely.
-        this.map.addMarker({
-            title: 'Ionic',
-            icon: 'blue',
-            animation: 'DROP',
-            position: {
-              lat: 43.0741904,
-              lng: -89.3809802
-            }
+        this.map.getMyLocation().then(local => {
+          console.log(local);
+          this.map.moveCamera({
+            'target': local.latLng,
+            'tilt': this.tilt,
+            'zoom': this.zoom,
           })
-          .then(marker => {
-            marker.on(GoogleMapsEvent.MARKER_CLICK)
-              .subscribe(() => {
-                alert('clicked');
-              });
-          });
-
+        })
       });
   }
 
