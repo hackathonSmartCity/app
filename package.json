@@ -29,8 +29,6 @@
     "cordova-android": "~6.3.0",
     "cordova-plugin-device": "^1.1.4",
     "cordova-plugin-facebook4": "^1.9.1",
-    "cordova-plugin-googlemaps": "^2.1.1",
-    "cordova-plugin-googleplaces": "git+https://github.com/ushu/cordova-plugin-googleplaces.git#android",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-splashscreen": "^4.0.3",
     "cordova-plugin-whitelist": "^1.3.1",

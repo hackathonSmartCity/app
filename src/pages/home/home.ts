@@ -1,62 +1,103 @@
-import { Component } from '@angular/core';
-import { GoogleMap, GoogleMapOptions, GoogleMaps, GoogleMapsEvent } from '@ionic-native/google-maps';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-declare var cordova: any
+
+declare var google: any;
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
-  providers: [GoogleMaps]
+  templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild('map') mapRef: ElementRef;
+  @ViewChild('search') searchRef: ElementRef;
+  map: any;
 
-  zoom = 18;
-  tilt = 15;
-  map: GoogleMap;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private googleMaps: GoogleMaps) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     this.loadMap();
+    // this.initAutocomplete();
   }
 
   loadMap() {
+    const location = new google.maps.LatLng(51.507351,-0.127758);
 
-    let mapOptions: GoogleMapOptions = {
-      controls: {
-        'myLocationButton': true
-      }
+    const options = {
+      center: location,
+      zoom: 15,
+      mapTypeControl: false
     };
 
-    this.map = this.googleMaps.create("map_canvas", mapOptions);
-    this.map.setMyLocationEnabled(true);
+    const map = new google.maps.Map(this.mapRef.nativeElement, options);
 
-    // Wait the MAP_READY before using any methods.
-    this.map.one(GoogleMapsEvent.MAP_READY)
-      .then(() => {
-        this.map.getMyLocation().then(local => {
-          this.map.moveCamera({
-            'target': local.latLng,
-            'tilt': this.tilt,
-            'zoom': this.zoom,
-          })
-          console.log("cordova",cordova)    
-          cordova.plugins.GooglePlaces.currentPlace(
-            // place contains the API result
-            place => {
-              console.log(place);
-              //   {
-              //    place: {
-              //      name: "some place name",
-              //      placeID: "XXXXX"
-              //    },
-              //    likehood: 0.87 // <= means 87% accurate
-              //   }
-            },
-            err => console.log(err)
-          );
-        });
-      })
+    this.addMarker(location, map);
+  }
+
+  addMarker(position, map) {
+    return new google.maps.Marker({
+      position,
+      map
+    })
+  }
+
+  initAutocomplete() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -33.8688, lng: 151.2195},
+      zoom: 13,
+      mapTypeId: 'roadmap'
+    });
+
+    var input = document.getElementById('search');
+    var searchBox = new google.maps.places.SearchBox(input);
+
+    map.addListener('bounds_changed', function() {
+      searchBox.setBounds(map.getBounds());
+    });
+
+    var markers = [];
+
+    searchBox.addListener('places_changed', function() {
+      var places = searchBox.getPlaces();
+
+      if (places.length == 0) {
+        return;
+      }
+
+      markers.forEach(function(marker) {
+        marker.setMap(null);
+      });
+      markers = [];
+
+      // For each place, get the icon, name and location.
+      var bounds = new google.maps.LatLngBounds();
+      places.forEach(function(place) {
+        if (!place.geometry) {
+          console.log("Returned place contains no geometry");
+          return;
+        }
+        var icon = {
+          url: place.icon,
+          size: new google.maps.Size(71, 71),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(17, 34),
+          scaledSize: new google.maps.Size(25, 25)
+        };
+
+        // Create a marker for each place.
+        markers.push(new google.maps.Marker({
+          map: map,
+          icon: icon,
+          title: place.name,
+          position: place.geometry.location
+        }));
+
+        if (place.geometry.viewport) {
+          bounds.union(place.geometry.viewport);
+        } else {
+          bounds.extend(place.geometry.location);
+        }
+      });
+      map.fitBounds(bounds);
+    });
   }
 }
