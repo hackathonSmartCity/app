@@ -91,7 +91,7 @@
     </plugin>
     <engine name="android" spec="~6.3.0" />
     <allow-navigation href="http://10.20.4.51:8100" />
-    <plugin name="cordova-plugin-googleplaces" spec="https://github.com/ushu/cordova-plugin-googleplaces.git#android">
+    <plugin name="cordova-plugin-googleplaces" spec="git+https://github.com/ushu/cordova-plugin-googleplaces.git#android">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAPgdp2NQuJ1LONKOG8XPELBDMFqq4s1vI" />
     </plugin>
 </widget>
