@@ -1,3 +1,21 @@
 page-escolha-deficiencias {
+    .handcap-bar {
+        position: absolute;
+        width: 90%;
+        height: 50px;
+        left: 5%;
+        top: 200px;
+        border-radius: 5px;
+    }
+    .searchbar-md, .searchbar-ios{
+        padding: 0;
+    }
 
+    .list{
+        columns: 2;
+    }
+
+    ion-content{
+        padding-top: 265px;
+    }
 }
