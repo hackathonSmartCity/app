@@ -1,14 +1,66 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { GoogleMap, GoogleMapOptions, GoogleMaps, GoogleMapsEvent } from '@ionic-native/google-maps';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers:[GoogleMaps]
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  @ViewChild('map') mapElement: HTMLElement;
+  
+  map: GoogleMap;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams,private googleMaps: GoogleMaps) {
+  }
+
+  ionViewDidLoad() {
+    this.loadMap();
+  }
+
+  loadMap() {
+
+    let mapOptions: GoogleMapOptions = {
+      camera: {
+        target: {
+          lat: 43.0741904,
+          lng: -89.3809802
+        },
+        zoom: 18,
+        tilt: 30
+      }
+    };
+
+    
+    this.map = this.googleMaps.create("map_canvas", mapOptions);
+    console.log(this.map);
+    
+
+    // Wait the MAP_READY before using any methods.
+    this.map.one(GoogleMapsEvent.MAP_READY)
+      .then(() => {
+        console.log('Map is ready!');
+
+        // Now you can use all methods safely.
+        this.map.addMarker({
+            title: 'Ionic',
+            icon: 'blue',
+            animation: 'DROP',
+            position: {
+              lat: 43.0741904,
+              lng: -89.3809802
+            }
+          })
+          .then(marker => {
+            marker.on(GoogleMapsEvent.MARKER_CLICK)
+              .subscribe(() => {
+                alert('clicked');
+              });
+          });
+
+      });
   }
 
 }
