@@ -50,4 +50,8 @@ export class EscolhaDeficienciasPage {
     this.clearSearch();
   }
 
+  removeChoice(index){
+    this.choices.splice(index, 1);
+  }
+
 }
