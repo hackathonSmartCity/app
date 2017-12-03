@@ -11,11 +11,28 @@ export class HomePage {
   @ViewChild('map') mapRef: ElementRef;
   @ViewChild('search') searchRef: ElementRef;
   map: any;
+  public recommendations: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.recommendations = [
+      {
+        id: 1,
+        name: 'Evento do Ciclano',
+        description: 'O Evento Ciclano possui um ambiente agradável, adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+      }, {
+        id: 1,
+        name: 'Bar do Fulano',
+        description: 'O Bar Fulano possui um ambiente agradável, adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+      }, {
+        id: 1,
+        name: 'Bar do Beltrano',
+        description: 'O Teatro Beltrano possui um ambiente agradável, adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+      }
+    ]
+  }
 
   ionViewDidLoad() {
-    this.loadMap();
+    // this.loadMap();
     // this.initAutocomplete();
   }
 

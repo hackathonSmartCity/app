@@ -1,3 +1,15 @@
 <section>
   <h3>Lugares Recomendados</h3>
+
+  <ion-slides class="slideHeader" initialSlide="{{ activeSlide }}" spaceBetween="10" slidesPerView="3" loop>
+    <ion-slide *ngFor="let establishment of establishments">
+      <h5 [ngClass]="{ 'active': establishment.id == activeSlide }">{{ establishment.name }}</h5>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-slides loop initialSlide="{{ activeSlide }}">
+    <ion-slide *ngFor="let establishment of establishments">
+      <p>{{ establishment.description }}</p>
+    </ion-slide>
+  </ion-slides>
 </section>
