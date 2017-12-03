@@ -1,3 +1,4 @@
+import { HomePage } from '../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Keyboard } from 'ionic-angular';
 
@@ -12,6 +13,9 @@ export class EscolhaDeficienciasPage {
   temp = [];
   allOptions = [];
   choices = [];
+  categories = [{ name: "Auditiva", selected: false }, { name: "Fisica", selected: false },
+  { name: "Intelectual", selected: false }, { name: "Visual", selected: false },
+  { name: "Mobilidade Reduzida", selected: false }];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public keyboard: Keyboard) {
   }
@@ -30,7 +34,7 @@ export class EscolhaDeficienciasPage {
     this.temp = this.allOptions.filter(el =>
       el.indexOf(text) != -1
     )
-    if(!this.temp[0]){
+    if (!this.temp[0]) {
       this.temp.push("Adicionar " + text)
     }
   }
@@ -50,8 +54,16 @@ export class EscolhaDeficienciasPage {
     this.clearSearch();
   }
 
-  removeChoice(index){
+  removeChoice(index) {
     this.choices.splice(index, 1);
+  }
+
+  changeCategory(index) {
+    this.categories[index].selected = !this.categories[index].selected;
+  }
+
+  send(){
+    this.navCtrl.setRoot(HomePage);
   }
 
 }

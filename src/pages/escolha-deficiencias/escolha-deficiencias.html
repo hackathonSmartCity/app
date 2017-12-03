@@ -7,7 +7,45 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <!--Sdds For funcionando-->
+      <ion-col (click)="changeCategory(0)" [ngClass]="{'selected': categories[0].selected}">
+        <ion-item>
+          {{categories[0].name}}
+        </ion-item>
+      </ion-col>
+      <ion-col (click)="changeCategory(1)" [ngClass]="{'selected': categories[1].selected}">
+        <ion-item>
+          {{categories[1].name}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col (click)="changeCategory(2)" [ngClass]="{'selected': categories[2].selected}">
+        <ion-item>
+          {{categories[2].name}}
+        </ion-item>
+      </ion-col>
+      <ion-col (click)="changeCategory(3)" [ngClass]="{'selected': categories[3].selected}">
+        <ion-item>
+          {{categories[3].name}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col offset-3 col-6 (click)="changeCategory(4)" [ngClass]="{'selected': categories[4].selected}">
+        <ion-item>
+          {{categories[4].name}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+<div class="divider">
+  Qual a sua deficiência?
+</div>
+
   <div class="handcap-bar">
     <ion-searchbar [(ngModel)]="searchText" (ionInput)="onInput($event.target.value)" (ionCancel)="onCancel($event.target.value)"
       (ionClear)="clearSearch()" [placeholder]="Escolher">
@@ -24,4 +62,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <button ion-button type="button" (click)="send()" block>Próximo</button>
 </ion-content>
