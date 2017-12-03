@@ -1,0 +1,28 @@
+<svg width="32" height="32" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>favorite-outline</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-5203 -313)">
+<g id="favorite-outline">
+<g id="Rectangle 6.2">
+<mask id="mask0_outline_ins">
+<use xlink:href="#path0_fill" fill="white" transform="translate(5203 313)"/>
+</mask>
+<g mask="url(#mask0_outline_ins)">
+<use xlink:href="#path1_stroke_2x" transform="translate(5203 313)" fill="#4678B4"/>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(5210.06 320.829)" fill="#4678B4"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 5C 0 2.23857 2.23858 0 5 0L 26.36 0C 29.1214 0 31.36 2.23858 31.36 5L 31.36 26.3158C 31.36 29.0772 29.1214 31.3158 26.36 31.3158L 5 31.3158C 2.23858 31.3158 0 29.0772 0 26.3158L 0 5Z"/>
+<path id="path1_stroke_2x" d="M 5 2L 26.36 2L 26.36 -2L 5 -2L 5 2ZM 29.36 5L 29.36 26.3158L 33.36 26.3158L 33.36 5L 29.36 5ZM 26.36 29.3158L 5 29.3158L 5 33.3158L 26.36 33.3158L 26.36 29.3158ZM 2 26.3158L 2 5L -2 5L -2 26.3158L 2 26.3158ZM 5 29.3158C 3.34315 29.3158 2 27.9726 2 26.3158L -2 26.3158C -2 30.1818 1.134 33.3158 5 33.3158L 5 29.3158ZM 29.36 26.3158C 29.36 27.9726 28.0168 29.3158 26.36 29.3158L 26.36 33.3158C 30.226 33.3158 33.36 30.1818 33.36 26.3158L 29.36 26.3158ZM 26.36 2C 28.0168 2 29.36 3.34315 29.36 5L 33.36 5C 33.36 1.13401 30.226 -2 26.36 -2L 26.36 2ZM 5 -2C 1.13401 -2 -2 1.134 -2 5L 2 5C 2 3.34314 3.34314 2 5 2L 5 -2Z"/>
+<path id="path2_fill" d="M 15.4471 1.29132C 13.8131 -0.425004 11.1599 -0.425004 9.5259 1.29132L 8.41365 2.4532L 7.3014 1.28724C 5.66337 -0.429081 3.01419 -0.429081 1.3802 1.28724C -0.460066 3.21556 -0.460066 6.34653 1.3802 8.27484L 8.41365 15.6579L 15.4471 8.27892C 17.2874 6.3506 17.2874 3.21964 15.4471 1.29132Z"/>
+</defs>
+</svg>
