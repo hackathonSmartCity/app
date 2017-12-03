@@ -21,7 +21,7 @@ export class EscolhaDeficienciasPage {
   }
 
   ionViewDidLoad() {
-    this.allOptions = ["Mudo", "Surdo", "Paraplegico","Prótese", "Gestante", "Idoso", "Obeso","Cadeirante"];
+    this.allOptions = ["Mudo", "Surdo", "Paraplegico", "Prótese", "Gestante", "Idoso", "Obeso", "Cadeirante"];
   }
 
   onInput(text) {
@@ -50,9 +50,9 @@ export class EscolhaDeficienciasPage {
   }
 
   addChoice(choice) {
-    let newChoice:any = {};
-    if(choice.indexOf("Adicionar") != -1){
-      choice.replace('Adicionar ','');
+    let newChoice: any = {};
+    if (choice.indexOf("Adicionar") != -1) {
+      choice.replace('Adicionar ', '');
       newChoice.isNewRegistry = true;
     }
 
@@ -69,7 +69,7 @@ export class EscolhaDeficienciasPage {
     this.categories[index].selected = !this.categories[index].selected;
   }
 
-  send(){
+  send() {
     // this.navCtrl.setRoot(HomePage);
     this.navCtrl.push('PreferenciasPage');
   }

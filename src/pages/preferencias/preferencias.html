@@ -14,49 +14,67 @@
 
 
 <ion-content padding>
-  <div class="card-container">
+
+  <ion-content>
     <ion-grid>
       <ion-row>
-        <ion-col>
+        <!--Sdds For funcionando-->
+        <ion-col (click)="changeCategory(0)" [ngClass]="{'selected': preferencias[0].selected}">
           <img src="assets/imgs/item-1.png" />
-          <span class="local">Bares</span>
+          <span class="local">
+            {{preferencias[0].name}}
+          </span>
         </ion-col>
-        <ion-col>
+        <ion-col (click)="changeCategory(1)" [ngClass]="{'selected': preferencias[1].selected}">
           <img src="assets/imgs/item-2.png" />
-          <span class="local">Cinemas</span>
+          <span class="local">
+            {{preferencias[1].name}}
+          </span>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>
+        <ion-col (click)="changeCategory(2)" [ngClass]="{'selected': preferencias[2].selected}">
           <img src="assets/imgs/item-3.png" />
-          <span class="local">Eventos</span>
+          <span class="local">
+            {{preferencias[2].name}}
+          </span>
         </ion-col>
-        <ion-col>
-          <img src="assets/imgs/item-4.png" />
-          <span class="local">Hotéis</span>
+        <ion-col (click)="changeCategory(3)" [ngClass]="{'selected': preferencias[3].selected}">
+            <img src="assets/imgs/item-4.png" />
+            <span class="local">
+              {{preferencias[3].name}}
+            </span>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>
+        <ion-col (click)="changeCategory(4)" [ngClass]="{'selected': preferencias[4].selected}">
           <img src="assets/imgs/item-5.png" />
-          <span class="local">Lojas</span>
+            <span class="local">
+              {{preferencias[4].name}}
+            </span>
         </ion-col>
-        <ion-col>
-          <img src="assets/imgs/item-6.png" />
-          <span class="local">Pontos Turísticos</span>
+        <ion-col (click)="changeCategory(5)" [ngClass]="{'selected': preferencias[5].selected}">
+            <img src="assets/imgs/item-6.png" />
+            <span class="local">
+              {{preferencias[5].name}}
+            </span>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>
-          <img src="assets/imgs/item-7.png" />
-          <span class="local">Restaurantes</span>
+        <ion-col (click)="changeCategory(6)" [ngClass]="{'selected': preferencias[6].selected}">
+            <img src="assets/imgs/item-7.png" />
+            <span class="local">
+              {{preferencias[6].name}}
+            </span>
         </ion-col>
-        <ion-col>
-          <img src="assets/imgs/item-8.png" />
-          <span class="local">Teatros</span>
+        <ion-col (click)="changeCategory(7)" [ngClass]="{'selected': preferencias[7].selected}">
+            <img src="assets/imgs/item-8.png" />
+            <span class="local">
+              {{preferencias[7].name}}
+            </span>
         </ion-col>
       </ion-row>
     </ion-grid>
-  </div>
-  <button ion-button type="button" (click)="sendPreferences()" block>Próximo</button>
-</ion-content>
+
+    <button ion-button type="button" (click)="sendPreferences()" block>Próximo</button>
+  </ion-content>

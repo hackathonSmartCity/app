@@ -3,9 +3,12 @@ page-preferencias {
   .local {
     font-size: 1.5em;
     color: #fff;
-    position: absolute;
-    margin-top: 75px;
-    margin-left: -150px;
+    // position: absolute;
+    // margin-top: 75px;
+    // marginionic-left: -150px;
   }
 
+  .selected {
+    border: 2px solid white;
+  }
 }
