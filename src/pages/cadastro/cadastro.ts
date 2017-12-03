@@ -45,7 +45,7 @@ export class CadastroPage {
       {'email': this.email},
       {'passwd': this.passwd}
     ];
-    this.navCtrl.push("EscolhaDeficienciasPage");
+    this.navCtrl.push("PreferenciasPage");
   }
 
 }
