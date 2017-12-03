@@ -15,11 +15,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PreferenciasPage {
 
+  tipos = []
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PreferenciasPage');
+  }
+
+  sendPreferences() {
+
   }
 
 }
