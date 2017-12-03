@@ -26,7 +26,7 @@ export class PreferenciasPage {
   }
 
   sendPreferences() {
-    this.navCtrl.setRoot(HomePage)
+    this.navCtrl.setRoot(HomePage);
   }
 
 }

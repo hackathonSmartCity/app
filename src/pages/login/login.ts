@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { NavController, NavParams } from 'ionic-angular';
 import {ApiService} from "../../services/apiServices";
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-login',
@@ -13,14 +14,23 @@ export class LoginPage {
 
   username: string;
   password: string;
-
   userData;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fb: Facebook, private apiService: ApiService) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private fb: Facebook,
+              private apiService: ApiService,
+              private storage: Storage) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+
+    this.storage.get('user').then((val) => {
+      if (val) {
+        this.navCtrl.setRoot(HomePage);
+      }
+    });
+
   }
 
 
@@ -39,10 +49,11 @@ export class LoginPage {
             };
 
             this.apiService.authFacebook(this.userData).then(user => {
+              this.storage.set('user', this.userData);
+              this.storage.set('loggedin', true);
               this.navCtrl.push('EscolhaDeficienciasPage');
             });
           })
-
       })
       .catch(e => console.log('Error logging into Facebook', e));
   }
