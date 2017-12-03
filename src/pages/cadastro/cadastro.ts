@@ -27,7 +27,6 @@ export class CadastroPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroPage');
   }
 
   send() {
@@ -45,7 +44,7 @@ export class CadastroPage {
       {'email': this.email},
       {'passwd': this.passwd}
     ];
-    this.navCtrl.push("PreferenciasPage");
+    this.navCtrl.push("EscolhaDeficienciasPage");
   }
 
 }

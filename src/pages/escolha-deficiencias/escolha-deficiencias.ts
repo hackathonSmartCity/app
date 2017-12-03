@@ -55,7 +55,7 @@ export class EscolhaDeficienciasPage {
       choice.replace('Adicionar ','');
       newChoice.isNewRegistry = true;
     }
-    
+
     newChoice.name = choice
     this.choices.push(newChoice);
     this.clearSearch();
@@ -64,13 +64,14 @@ export class EscolhaDeficienciasPage {
   removeChoice(index) {
     this.choices.splice(index, 1);
   }
-  
+
   changeCategory(index) {
     this.categories[index].selected = !this.categories[index].selected;
   }
 
   send(){
-    this.navCtrl.setRoot(HomePage);
+    // this.navCtrl.setRoot(HomePage);
+    this.navCtrl.push('PreferenciasPage');
   }
 
 }
