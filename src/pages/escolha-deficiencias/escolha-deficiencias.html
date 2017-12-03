@@ -1,12 +1,10 @@
 <ion-header>
 
   <ion-navbar>
-escolha-deficiencias
     <ion-title>Qual deficiência você tem?</ion-title>
   </ion-navbar>
 
 </ion-header>
-
 
 <ion-content>
   <ion-grid>
@@ -48,16 +46,16 @@ escolha-deficiencias
 </div>
 
   <div class="handcap-bar">
-    <ion-searchbar [(ngModel)]="searchText" (ionInput)="onInput($event.target.value)" (ionCancel)="onCancel($event.target.value)"
-      (ionClear)="clearSearch()" [placeholder]="Escolher">
-    </ion-searchbar>
+    <ion-searchbar  placeholder="Ex: Prótese, Cadeirante" [(ngModel)]="searchText" (ionInput)="onInput($event.target.value)" (ionCancel)="onCancel($event.target.value)"
+      (ionClear)="clearSearch()">
+    </ion-searchbar >
     <ion-item *ngFor="let choice of temp" (click)=addChoice(choice)>{{choice}}</ion-item>
   </div>
   <ion-grid>
     <ion-row>
-      <ion-col col-6 *ngFor="let choice of choices; let i=index">
+      <ion-col col-6 *ngFor="let choice of choices; let i=index" [ngClass]="{'new-registry': choice.isNewRegistry}" >
         <ion-item>
-          {{choice}}
+          {{choice.name}}
           <ion-icon name="close" (click)="removeChoice(i)"></ion-icon>
         </ion-item>
       </ion-col>

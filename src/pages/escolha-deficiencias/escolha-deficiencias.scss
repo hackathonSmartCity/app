@@ -10,7 +10,7 @@ page-escolha-deficiencias {
     .list {
         columns: 2;
     }
-    .selected .item {
+    .selected .item, .new-registry .item {
         background: #4678B4;
     }
     .grid {
@@ -30,5 +30,10 @@ page-escolha-deficiencias {
         height: 50px;
         text-align: center;
         font-size: x-large;
+    }
+
+    .button{
+        margin: 10%;
+        width: 80%;
     }
 }
