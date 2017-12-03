@@ -51,8 +51,7 @@ export class HomePage {
         }).then(marker => {
           marker.on(GoogleMapsEvent.MARKER_CLICK)
             .subscribe(() => {
-              console.log("clicado");
-              alert('clicked');
+              this.navCtrl.push("AvaliacaoPage");
             });
         });
       });
