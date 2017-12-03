@@ -1,0 +1,15 @@
+<section>
+  <h3>Lugares Recomendados</h3>
+
+  <ion-slides class="slideHeader" initialSlide="{{ activeSlide }}" spaceBetween="10" slidesPerView="3" loop>
+    <ion-slide *ngFor="let recomendado of recomendados">
+      <h5 [ngClass]="{ 'active': recomendado.id == activeSlide }">{{ recomendado.name }}</h5>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-slides loop initialSlide="{{ activeSlide }}">
+    <ion-slide *ngFor="let recomendado of recomendados">
+      <p>{{ recomendado.description }}</p>
+    </ion-slide>
+  </ion-slides>
+</section>

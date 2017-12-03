@@ -12,8 +12,24 @@ export class HomePage {
   zoom = 18;
   tilt = 15;
   map: GoogleMap;
+  public recomendados;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private googleMaps: GoogleMaps) {
+    this.recomendados = [
+      {
+        id: 1,
+        name: 'Local 1',
+        description: 'sdfdsfsdfa'
+      },{
+        id: 2,
+        name: 'Local 2',
+        description: 'sdfdsfsdfa'
+      },{
+        id: 3,
+        name: 'Local 3',
+        description: 'sdfdsfsdfa'
+      }
+    ];
   }
 
   ionViewDidLoad() {
