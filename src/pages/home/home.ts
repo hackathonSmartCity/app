@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { GoogleMap, GoogleMapOptions, GoogleMaps, GoogleMapsEvent } from '@ionic-native/google-maps';
 import { NavController, NavParams } from 'ionic-angular';
+import { MenuController } from 'ionic-angular/components/app/menu-controller';
 
 @Component({
   selector: 'page-home',
@@ -12,8 +13,11 @@ export class HomePage {
   zoom = 18;
   tilt = 15;
   map: GoogleMap;
+  menuActive: string = 'menu';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private googleMaps: GoogleMaps) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private googleMaps: GoogleMaps, public menu: MenuController) {
+      // this.menu.enable(true, 'menu');
   }
 
   ionViewDidLoad() {

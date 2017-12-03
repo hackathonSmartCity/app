@@ -1,6 +1,7 @@
 page-login {
   .logo {
     margin: 0 auto;
+    margin-bottom: 50px;
   }
 
   .container-logo {
@@ -12,5 +13,11 @@ page-login {
     background-color: #415b00;
     color: #fff;
     text-align: center;
+  }
+
+  .item-input {
+    background-color: #fff;
+    border-radius: 3px;
+    margin-bottom: 20px;
   }
 }

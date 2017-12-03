@@ -28,3 +28,29 @@
     width: 80%;
     border-radius: 5px;
 }
+
+ion-menu {
+  .scroll-content {
+    background-color: #fff;
+  }
+
+  .name {
+    font-size: 1.5em;
+  }
+
+  .profile-avatar {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    border-radius: 50%;
+  }
+
+  .mail {
+    font-size: 1.1em;
+  }
+
+  .center {
+    text-align: center;
+    margin: 0 auto;
+  }
+}

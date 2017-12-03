@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the PreferenciasPage page.
@@ -25,7 +26,7 @@ export class PreferenciasPage {
   }
 
   sendPreferences() {
-
+    this.navCtrl.setRoot(HomePage)
   }
 
 }
