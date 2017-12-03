@@ -57,7 +57,7 @@ export class EscolhaDeficienciasPage {
   removeChoice(index) {
     this.choices.splice(index, 1);
   }
-
+  
   changeCategory(index) {
     this.categories[index].selected = !this.categories[index].selected;
   }

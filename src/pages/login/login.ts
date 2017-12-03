@@ -1,15 +1,8 @@
+import { HomePage } from '../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -43,9 +36,16 @@ export class LoginPage {
               { "email": profile.email },
               { "picture": profile.picture_large.data.url },
               { "facebook_auth": res.authResponse.accessToken }];
+
+              this.navCtrl.push('EscolhaDeficienciasPage')
           })
+
       })
       .catch(e => console.log('Error logging into Facebook', e));
+  }
+
+  logForm(){
+    this.navCtrl.setRoot(HomePage)
   }
 
 }

@@ -5,27 +5,27 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
   <form (ngSubmit)="logForm()">
+    <div class="container-logo">
+      <img class="logo" src="../../assets/imgs/image.svg" />
+    </div>
     <ion-item>
-      <ion-label>Login</ion-label>
+      <ion-label floating>Seu login</ion-label>
       <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Senha</ion-label>
-      <ion-textarea [(ngModel)]="password" name="password"></ion-textarea>
+      <ion-label floating>Sua senha</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
     </ion-item>
     <button ion-button type="submit" block>Conectar</button>
   </form>
-  <button ion-button type="button" (click)="fbLogin()" block>Facebook</button>
+  <button ion-button type="button" (click)="fbLogin()" block>Entre com o Facebook</button>
 
-  {{ return }}
+  <ion-item>
+    <span>Não tem uma conta ainda?</span> <br/><a navPush="CadastroPage">Cadastre-se</a>
+  </ion-item>
 </ion-content>
