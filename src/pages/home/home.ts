@@ -42,6 +42,19 @@ export class HomePage {
             'zoom': this.zoom,
           })
         })
+
+        this.map.addMarker({
+          'position': {
+            lat: -22.894837,
+            lng: -43.294115
+          },
+        }).then(marker => {
+          marker.on(GoogleMapsEvent.MARKER_CLICK)
+            .subscribe(() => {
+              console.log("clicado");
+              alert('clicked');
+            });
+        });
       });
   }
 
