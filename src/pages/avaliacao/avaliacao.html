@@ -1,0 +1,30 @@
+<ion-content>
+  <div class="details" text-center>
+    <img [src]="data?.photo">
+    <p>{{data?.name}}</p>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img [src]="like" (click)="changeLike()">
+        </ion-col>
+        <ion-col>
+          <img [src]="dislike" (click)="changeDislike()">
+        </ion-col>
+        <ion-col>
+          <img [src]="favorite" (click)="favoritePlace()">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          {{data?.likes}}
+        </ion-col>
+        <ion-col>
+          {{data?.dislikes}}
+        </ion-col>
+        <ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <p class="description">{{data?.description}}</p>
+</ion-content>
