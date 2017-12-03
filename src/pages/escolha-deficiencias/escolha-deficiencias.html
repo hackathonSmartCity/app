@@ -1,23 +1,67 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Qual deficiência </ion-title>
+escolha-deficiencias
+    <ion-title>Qual deficiência você tem?</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-searchbar [(ngModel)]="searchText" (ionInput)="onInput($event.target.value)" (ionCancel)="onCancel($event.target.value)"
-    (ionClear)="clearSearch()" [placeholder]="Escolher">
-  </ion-searchbar>
-  <ion-item *ngFor="let choice of temp" (click)=addChoice(choice)>{{choice}}</ion-item>
-  <br><br><!--apagar isso-->
-  <ion-list>
-    <ion-item *ngFor="let choice of choices; let i=index">
-        {{choice}}
-        <ion-icon name="close" (click)="removeChoice(i)"></ion-icon>
-    </ion-item>
-  </ion-list>
-  <button ion-button type="button" (click)="send()" block>Conectar</button>
+  <ion-grid>
+    <ion-row>
+      <!--Sdds For funcionando-->
+      <ion-col (click)="changeCategory(0)" [ngClass]="{'selected': categories[0].selected}">
+        <ion-item>
+          {{categories[0].name}}
+        </ion-item>
+      </ion-col>
+      <ion-col (click)="changeCategory(1)" [ngClass]="{'selected': categories[1].selected}">
+        <ion-item>
+          {{categories[1].name}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col (click)="changeCategory(2)" [ngClass]="{'selected': categories[2].selected}">
+        <ion-item>
+          {{categories[2].name}}
+        </ion-item>
+      </ion-col>
+      <ion-col (click)="changeCategory(3)" [ngClass]="{'selected': categories[3].selected}">
+        <ion-item>
+          {{categories[3].name}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col offset-3 col-6 (click)="changeCategory(4)" [ngClass]="{'selected': categories[4].selected}">
+        <ion-item>
+          {{categories[4].name}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+<div class="divider">
+  Qual a sua deficiência?
+</div>
+
+  <div class="handcap-bar">
+    <ion-searchbar [(ngModel)]="searchText" (ionInput)="onInput($event.target.value)" (ionCancel)="onCancel($event.target.value)"
+      (ionClear)="clearSearch()" [placeholder]="Escolher">
+    </ion-searchbar>
+    <ion-item *ngFor="let choice of temp" (click)=addChoice(choice)>{{choice}}</ion-item>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let choice of choices; let i=index">
+        <ion-item>
+          {{choice}}
+          <ion-icon name="close" (click)="removeChoice(i)"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button ion-button type="button" (click)="send()" block>Próximo</button>
 </ion-content>
