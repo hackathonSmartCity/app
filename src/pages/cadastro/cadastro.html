@@ -1,0 +1,53 @@
+<!--
+  Generated template for the CadastroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      <span [ngClass]="index == 0 ? 'show' : 'hidden'">
+        Cadastre-se
+      </span>
+      <span [ngClass]="index == 1 ? 'show' : 'hidden'">
+        Faltam só mais duas etapas
+      </span>
+      <span [ngClass]="index == 2 ? 'show' : 'hidden'">
+        Estamos quase lá...
+      </span>
+      <span [ngClass]="index == 3 ? 'show' : 'hidden'">
+        Agora é só confirmar sua senha e pronto!
+      </span>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item [ngClass]="index == 0 ? 'show' : 'hidden'">
+      <ion-label color="light" floating>Qual o seu e-mail?</ion-label>
+      <ion-input [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item [ngClass]="index == 1 ? 'show' : 'hidden'">
+      <ion-label color="light" floating>Qual o seu nome?</ion-label>
+      <ion-input [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item [ngClass]="index == 2 ? 'show' : 'hidden'">
+      <ion-label color="light" floating>Digite sua senha</ion-label>
+      <ion-input [(ngModel)]="passwd"></ion-input>
+    </ion-item>
+
+    <ion-item [ngClass]="index == 3 ? 'show' : 'hidden'">
+      <ion-label color="light" floating>Repita sua senha</ion-label>
+      <ion-input [(ngModel)]="passwdc"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button type="button" (click)="send()" block>Conectar</button>
+
+</ion-content>
