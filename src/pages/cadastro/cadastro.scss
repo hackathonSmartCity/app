@@ -1,23 +1,25 @@
+cadastro-page {
+    .item-input {
+        background-color: #415b00;
+    }
+}
+
 .show {
-  display: block;
+    display: block;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .button-default {
-  // max-width: 330px;
-  border-radius: 5px;
-   margin: 20px 0 auto;
-}
-
-.item-input {
-  // background-color: #415b00;
+    // max-width: 330px;
+    border-radius: 5px;
+    margin: 20px 0 auto;
 }
 
 .text-input-md {
-  color: #fff;
+    color: #fff;
 }
 
 // md-primary, .item-input .label-md-primary {

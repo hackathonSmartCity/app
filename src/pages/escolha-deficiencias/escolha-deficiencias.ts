@@ -1,3 +1,4 @@
+import { HomePage } from '../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Keyboard } from 'ionic-angular';
 
@@ -52,6 +53,10 @@ export class EscolhaDeficienciasPage {
 
   removeChoice(index){
     this.choices.splice(index, 1);
+  }
+
+  send(){
+    this.navCtrl.setRoot(HomePage)
   }
 
 }
